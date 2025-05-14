@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59871AFE-1144-42C5-8442-694101AD4AC2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProLab3</RootNamespace>
+    <AssemblyName>ProLab3</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddPatientScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPatientScreen.Designer.cs">
+      <DependentUpon>AddPatientScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackwardIcon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BackwardIcon.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseSymptoms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseSymptoms.Designer.cs">
+      <DependentUpon>ChooseSymptoms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseSymptoms2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseSymptoms2.Designer.cs">
+      <DependentUpon>ChooseSymptoms2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorScreen.Designer.cs">
+      <DependentUpon>DoctorScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption.cs" />
+    <Compile Include="PatientInfo.cs" />
+    <Compile Include="PatientScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientScreen.Designer.cs">
+      <DependentUpon>PatientScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartScreen.Designer.cs">
+      <DependentUpon>StartScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInDoctor.Designer.cs">
+      <DependentUpon>LogInDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInPatient.Designer.cs">
+      <DependentUpon>LogInPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddPatientScreen.resx">
+      <DependentUpon>AddPatientScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackwardIcon.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BackwardIcon.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseSymptoms.resx">
+      <DependentUpon>ChooseSymptoms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseSymptoms2.resx">
+      <DependentUpon>ChooseSymptoms2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorScreen.resx">
+      <DependentUpon>DoctorScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientScreen.resx">
+      <DependentUpon>PatientScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartScreen.resx">
+      <DependentUpon>StartScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInDoctor.resx">
+      <DependentUpon>LogInDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInPatient.resx">
+      <DependentUpon>LogInPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-backward1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-backward %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-backward %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-user.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
