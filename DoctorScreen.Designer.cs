@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Eğer bir öğeye tıklanınca büyütülmüş şekilde görüntülenmesini istiyorsanız, Messa" +
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Eğer bir öğeye tıklanınca büyütülmüş şekilde görüntülenmesini istiyorsanız, Messa" +
         "geBox ile bunu yapabilirsiniz:");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Az Şekerli Diyet: Şekerli gıdalar sınırlanır, kompleks karbonhidratlara öncelik",
             "naber müfür"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Şekersiz Diyet: Rafine şeker ve şeker katkılı tüm ürünler tamamen dışlanır.");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Dengeli Beslenme: Diyabetli bireylerin yaşam tarzına uygun, dengeli ve");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Şekersiz Diyet: Rafine şeker ve şeker katkılı tüm ürünler tamamen dışlanır.");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Dengeli Beslenme: Diyabetli bireylerin yaşam tarzına uygun, dengeli ve");
             this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listViewPatientsInfos = new System.Windows.Forms.ListView();
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderSurName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderGender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,7 +66,7 @@
             // 
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(557, 1);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(282, 97);
@@ -75,14 +75,14 @@
             this.listView1.View = System.Windows.Forms.View.List;
             this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate_1);
             // 
-            // listView2
+            // listViewPatientsInfos
             // 
-            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listViewPatientsInfos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listView2.CheckBoxes = true;
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewPatientsInfos.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listViewPatientsInfos.CheckBoxes = true;
+            this.listViewPatientsInfos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName,
             this.columnHeaderSurName,
             this.columnHeaderGender,
@@ -96,16 +96,15 @@
             this.columnHeaderSymptom6,
             this.columnHeaderSymptom7,
             this.columnHeaderSymptom8});
-            this.listView2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listView2.GridLines = true;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(3, 103);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(1006, 200);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            this.listViewPatientsInfos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listViewPatientsInfos.GridLines = true;
+            this.listViewPatientsInfos.HideSelection = false;
+            this.listViewPatientsInfos.Location = new System.Drawing.Point(3, 103);
+            this.listViewPatientsInfos.Name = "listViewPatientsInfos";
+            this.listViewPatientsInfos.Size = new System.Drawing.Size(1006, 200);
+            this.listViewPatientsInfos.TabIndex = 1;
+            this.listViewPatientsInfos.UseCompatibleStateImageBehavior = false;
+            this.listViewPatientsInfos.View = System.Windows.Forms.View.Details;
             // 
             // columnHeaderName
             // 
@@ -177,11 +176,11 @@
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.listView3.HideSelection = false;
-            listViewItem6.ToolTipText = "Az Şekerli Diyet";
+            listViewItem2.ToolTipText = "Az Şekerli Diyet";
             this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.listView3.Location = new System.Drawing.Point(4, 71);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(282, 109);
@@ -223,7 +222,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.listView2);
+            this.panel1.Controls.Add(this.listViewPatientsInfos);
             this.panel1.Location = new System.Drawing.Point(4, 284);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1009, 306);
@@ -287,7 +286,7 @@
         #endregion
 
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listViewPatientsInfos;
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

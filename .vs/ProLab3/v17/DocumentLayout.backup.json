@@ -3,76 +3,64 @@
   "WorkspaceRootPath": "B:\\SonProLab3\\ProLab3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|b:\\sonprolab3\\prolab3\\choosesymptoms2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:choosesymptoms2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|b:\\sonprolab3\\prolab3\\choosesymptoms2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:choosesymptoms2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|b:\\sonprolab3\\prolab3\\choosesymptoms2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:choosesymptoms2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\choosesymptoms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:choosesymptoms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\choosesymptoms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:choosesymptoms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|b:\\sonprolab3\\prolab3\\addpatientscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:addpatientscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\addpatientscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:addpatientscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|b:\\sonprolab3\\prolab3\\addpatientscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:addpatientscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:ChooseSymptoms2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|b:\\sonprolab3\\prolab3\\patientinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:patientinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\loginpatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:loginpatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\encryption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:encryption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\PatientInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:PatientInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\doctorscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:doctorscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\LogInDoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:LogInDoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\choosesymptoms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:choosesymptoms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\Encryption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:Encryption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\DoctorScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:DoctorScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\doctorscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:doctorscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\addpatientscreen.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:addpatientscreen.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\AddPatientScreen.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:AddPatientScreen.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\startscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:startscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\StartScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:StartScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\startscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:startscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\BackwardIcon.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:BackwardIcon.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\backwardicon.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:backwardicon.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\LogInDoctor.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:LogInDoctor.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\logindoctor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:logindoctor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\loginpatient.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:loginpatient.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|B:\\SonProLab3\\ProLab3\\LogInPatient.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59871AFE-1144-42C5-8442-694101AD4AC2}|ProLab3.csproj|solutionrelative:LogInPatient.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -106,121 +94,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChooseSymptoms2.Designer.cs",
-              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.Designer.cs",
-              "RelativeDocumentMoniker": "ChooseSymptoms2.Designer.cs",
-              "ToolTip": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.Designer.cs",
-              "RelativeToolTip": "ChooseSymptoms2.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAA3AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "LogInPatient.cs [Design]",
+              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\LogInPatient.cs",
+              "RelativeDocumentMoniker": "LogInPatient.cs",
+              "ToolTip": "B:\\SonProLab3\\ProLab3\\LogInPatient.cs [Design]",
+              "RelativeToolTip": "LogInPatient.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:26:51.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChooseSymptoms2.cs",
-              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.cs",
-              "RelativeDocumentMoniker": "ChooseSymptoms2.cs",
-              "ToolTip": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.cs",
-              "RelativeToolTip": "ChooseSymptoms2.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:20:45.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T05:53:54.813Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ChooseSymptoms2.cs [Design]",
-              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.cs",
-              "RelativeDocumentMoniker": "ChooseSymptoms2.cs",
-              "ToolTip": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.cs [Design]",
-              "RelativeToolTip": "ChooseSymptoms2.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:20:37.969Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "B:\\SonProLab3\\ProLab3\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:43:20.105Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "AddPatientScreen.cs [Design]",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\AddPatientScreen.cs",
               "RelativeDocumentMoniker": "AddPatientScreen.cs",
               "ToolTip": "B:\\SonProLab3\\ProLab3\\AddPatientScreen.cs [Design]",
               "RelativeToolTip": "AddPatientScreen.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T04:01:55.542Z",
+              "WhenOpened": "2025-05-18T21:10:21.632Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "AddPatientScreen.cs",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\AddPatientScreen.cs",
               "RelativeDocumentMoniker": "AddPatientScreen.cs",
               "ToolTip": "B:\\SonProLab3\\ProLab3\\AddPatientScreen.cs",
               "RelativeToolTip": "AddPatientScreen.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAALABAAAAAAAAAAAAwLYBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-08T04:04:05.641Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChooseSymptoms2.cs",
+              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.cs",
+              "RelativeDocumentMoniker": "ChooseSymptoms2.cs",
+              "ToolTip": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms2.cs",
+              "RelativeToolTip": "ChooseSymptoms2.cs",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAwwPUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:20:45.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "LogInDoctor.cs",
+              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\LogInDoctor.cs",
+              "RelativeDocumentMoniker": "LogInDoctor.cs",
+              "ToolTip": "B:\\SonProLab3\\ProLab3\\LogInDoctor.cs",
+              "RelativeToolTip": "LogInDoctor.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAA8wGoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T23:11:36.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PatientInfo.cs",
+              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\PatientInfo.cs",
+              "RelativeDocumentMoniker": "PatientInfo.cs",
+              "ToolTip": "B:\\SonProLab3\\ProLab3\\PatientInfo.cs",
+              "RelativeToolTip": "PatientInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T10:37:57.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ChooseSymptoms.cs [Design]",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms.cs",
               "RelativeDocumentMoniker": "ChooseSymptoms.cs",
               "ToolTip": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms.cs [Design]",
               "RelativeToolTip": "ChooseSymptoms.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:34:38.721Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-13T20:34:38.721Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChooseSymptoms.cs",
-              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms.cs",
-              "RelativeDocumentMoniker": "ChooseSymptoms.cs",
-              "ToolTip": "B:\\SonProLab3\\ProLab3\\ChooseSymptoms.cs",
-              "RelativeToolTip": "ChooseSymptoms.cs",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAgwBMBAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:36:22.253Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PatientInfo.cs",
-              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\PatientInfo.cs",
-              "RelativeDocumentMoniker": "PatientInfo.cs",
-              "ToolTip": "B:\\SonProLab3\\ProLab3\\PatientInfo.cs",
-              "RelativeToolTip": "PatientInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T10:37:57.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Encryption.cs",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\Encryption.cs",
               "RelativeDocumentMoniker": "Encryption.cs",
@@ -228,12 +186,11 @@
               "RelativeToolTip": "Encryption.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T17:17:55.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T17:17:55.016Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "DoctorScreen.cs",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\DoctorScreen.cs",
               "RelativeDocumentMoniker": "DoctorScreen.cs",
@@ -245,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "DoctorScreen.cs [Design]",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\DoctorScreen.cs",
               "RelativeDocumentMoniker": "DoctorScreen.cs",
@@ -256,30 +213,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "AddPatientScreen.resx",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\AddPatientScreen.resx",
               "RelativeDocumentMoniker": "AddPatientScreen.resx",
               "ToolTip": "B:\\SonProLab3\\ProLab3\\AddPatientScreen.resx",
               "RelativeToolTip": "AddPatientScreen.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-05-11T00:47:58.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T00:47:58.819Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "StartScreen.cs [Design]",
-              "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\StartScreen.cs",
-              "RelativeDocumentMoniker": "StartScreen.cs",
-              "ToolTip": "B:\\SonProLab3\\ProLab3\\StartScreen.cs [Design]",
-              "RelativeToolTip": "StartScreen.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T23:00:55.705Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 11,
               "Title": "StartScreen.cs",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\StartScreen.cs",
               "RelativeDocumentMoniker": "StartScreen.cs",
@@ -291,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 12,
               "Title": "BackwardIcon.resx",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\BackwardIcon.resx",
               "RelativeDocumentMoniker": "BackwardIcon.resx",
@@ -302,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 13,
               "Title": "LogInDoctor.Designer.cs",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\LogInDoctor.Designer.cs",
               "RelativeDocumentMoniker": "LogInDoctor.Designer.cs",
@@ -314,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 14,
               "Title": "LogInPatient.Designer.cs",
               "DocumentMoniker": "B:\\SonProLab3\\ProLab3\\LogInPatient.Designer.cs",
               "RelativeDocumentMoniker": "LogInPatient.Designer.cs",

@@ -19,6 +19,7 @@ namespace ProLab3
 {
     public partial class AddPatientScreen : Form
     {
+        ChooseSymptoms2 chooseSymptoms2 = new ChooseSymptoms2();
         public AddPatientScreen()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace ProLab3
 
         private void AddPatientScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //chooseSymptoms2.Close();
             Application.Exit();
         }
 
@@ -117,7 +119,16 @@ namespace ProLab3
             string password = textBoxPassword.Text;
             string password_repetition = textBoxPasswordRepetition.Text;
             string str_blood_sugar = textBoxBloodSugar.Text.Trim();
-            int blood_sugar = Int32.Parse(str_blood_sugar);
+            int blood_sugar=0;//default sıfır değeri atan mıyormuymuş ???
+            if (!string.IsNullOrWhiteSpace(str_blood_sugar)) // boş ya da sadece boşluk değilse
+            {
+                if (!int.TryParse(str_blood_sugar, out blood_sugar))
+                {
+                    MessageBox.Show("Kan şekeri değeri geçerli bir sayı olmalıdır.");
+                    return; // işlem iptal
+                }
+            }
+
             string tc_no_hash = Encryption.encryptWithSHA512(tc_no);
             string salt = Encryption.createRandomSalt();
             string password_hash = Encryption.encryptWithSHA512(password+salt);
@@ -133,13 +144,18 @@ namespace ProLab3
             else if (password != password_repetition)
             {
                 MessageBox.Show("Lütfen şifre tekrarını doğru şekilde giriniz");
-                }
+            }
             else {
-                string connectionString = "Server=ORHANUZEL\\SQLEXPRESS;Database=DiabetesMonitoringSystem;Trusted_Connection=True;"; // Güncelle
-               bool result= sqlProcessForSignUp(connectionString, name, surname, gender, birth_date, tc_no_hash, email, phone_number, blood_sugar, password_hash, salt);
-                if(result == true)
+               string connectionString = "Server=ORHANUZEL\\SQLEXPRESS;Database=DiabetesMonitoringSystem;Trusted_Connection=True;"; // Güncelle
+               bool result= sqlProcessForSignUpWithTransaction(connectionString, name, surname, gender, birth_date, tc_no_hash, email, phone_number, blood_sugar, password_hash, salt);
+                if (result == true)
                 {
+                    MessageBox.Show("Kayıt Başarılı!");
                     sendPass(email, password);
+                }
+                else
+                {
+                    MessageBox.Show("Başarısız Kayıt!");
                 }
 
             }
@@ -152,12 +168,140 @@ namespace ProLab3
 
 
 
+        }           //Transaction Ya hep Ya hiç
+
+        private bool sqlProcessForSignUpWithTransaction(string connectionString, string name, string surname, bool gender, DateTime birth_date, string tc_no_hash, string email, string phone_number, int blood_sugar, string password_hash, string salt)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Transaction başlatma
+                SqlTransaction transaction = connection.BeginTransaction();
+
+                try
+                {
+                    // İlk tabloya ekleme yapma
+                    using (SqlCommand addPatientInfoCmd = new SqlCommand(
+                        "INSERT INTO tbl_patients (name, surname, gender, birth_date, tc_no_hash, email, phone_number, blood_sugar, password_hash, salt) VALUES (@name, @surname, @gender, @birth_date, @tc_no_hash, @email, @phone_number, @blood_sugar, @password_hash, @salt); SELECT SCOPE_IDENTITY()",
+                        connection, transaction))
+                    {
+                        addPatientInfoCmd.Parameters.AddWithValue("@name", name);
+                        addPatientInfoCmd.Parameters.AddWithValue("@surname", surname);
+                        addPatientInfoCmd.Parameters.AddWithValue("@gender", gender);
+                        addPatientInfoCmd.Parameters.AddWithValue("@birth_date", birth_date);
+                        addPatientInfoCmd.Parameters.AddWithValue("@tc_no_hash", tc_no_hash);
+                        addPatientInfoCmd.Parameters.AddWithValue("@email", email);
+                        addPatientInfoCmd.Parameters.AddWithValue("@phone_number", phone_number);
+                        addPatientInfoCmd.Parameters.AddWithValue("@blood_sugar", blood_sugar);
+                        addPatientInfoCmd.Parameters.AddWithValue("@password_hash", password_hash);
+                        addPatientInfoCmd.Parameters.AddWithValue("@salt", salt);
+
+                        // Yeni eklenen hastanın ID'sini alma
+                        int patientId = Convert.ToInt32(addPatientInfoCmd.ExecuteScalar());
+                        List<int> symptom_id_list = new List<int>();
+                        
+                        // SQL sorgusunu oluştur
+                        StringBuilder queryBuilder = new StringBuilder();
+                        queryBuilder.Append("SELECT id FROM tbl_symptoms WHERE symptom_name IN (");
+
+                        // Parametre listesi oluştur
+                        for (int i = 0; i < PatientInfo.PatientSymptoms.Count; i++)
+                        {
+                            string paramName = $"@p{i}";
+                            queryBuilder.Append(i > 0 ? ", " : "").Append(paramName);
+                        }
+                        queryBuilder.Append(")");
+
+                        using (SqlCommand commandForSymptomId = new SqlCommand(queryBuilder.ToString(), connection,transaction))
+                        {
+                            // Parametreleri ekle
+                            for (int i = 0; i < PatientInfo.PatientSymptoms.Count; i++)
+                            {
+                                //var paramValue = PatientInfo.PatientSymptoms[i];
+                                commandForSymptomId.Parameters.Add(new SqlParameter($"@p{i}", SqlDbType.NVarChar) { Value = PatientInfo.PatientSymptoms[i] });
+                            }
+                            // commandForSymptomId.ExecuteNonQuery();
+                            // Sorguyu çalıştır ve sonuçları oku
+                            using (SqlDataReader reader = commandForSymptomId.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    // GetInt32() yerine daha güvenli bir dönüşüm yöntemi kullanın
+                                    if (!reader.IsDBNull(0))
+                                    {
+                                        // tinyint için GetByte() kullanmak daha uygun olabilir
+                                        byte idAsByte = reader.GetByte(0);
+                                        int id = (int)idAsByte; // Sonra int'e dönüştürün
+                                        symptom_id_list.Add(id);
+                                    }
+                                }
+                            }
+                        }
+                        //elimizde symptomnların id bilgileri var o id bilgilerine göre
+                        //hastamızın idsini kullanarak belirtileri
+                        //belirti tablomuza ekleyeceğizz
+                        addSymptomsToPatient(patientId, symptom_id_list, connection, transaction);
+
+                        // Tüm işlemler başarılıysa commit et
+                        transaction.Commit();
+                        Console.WriteLine("Tüm tablolardaki işlemler başarıyla tamamlandı.");
+                        return true;
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    // SQL hatalarını detaylı şekilde yakala
+                    Console.WriteLine($"SQL Error Number: {sqlEx.Number}");
+                    Console.WriteLine($"Error Message: {sqlEx.Message}");
+                    Console.WriteLine($"SQL State: {sqlEx.State}");
+                    Console.WriteLine($"Error Procedure: {sqlEx.Procedure}");
+                    Console.WriteLine($"Line Number: {sqlEx.LineNumber}");
+
+                    // Hatayı yeniden fırlat veya işle
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    // Hata durumunda rollback yap
+                    transaction.Rollback();
+                   // Console.WriteLine($"Hata oluştu, işlemler geri alındı: {ex.Message}");
+                    // Genel hataları yakala
+                    Console.WriteLine($"Error Type: {ex.GetType().Name}");
+                    Console.WriteLine($"Error Message: {ex.Message}");
+                    Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+
+                    return false;
+
+                }
+            }
         }
+        // Belirtileri hastaya ekleyen method
+        public void addSymptomsToPatient(int patientId, List<int> symptomIdList,SqlConnection connection,SqlTransaction transaction)
+        {
+                foreach (var symptomId in symptomIdList)
+                {
+                    using (SqlCommand command = new SqlCommand("INSERT INTO tbl_patient_symptoms (patient_id, symptom_id) VALUES (@p_id, @p_symptom)"
+                        , connection, transaction))
+                    {
+                        command.Parameters.AddWithValue("@p_id", patientId);
+                        command.Parameters.AddWithValue("@p_symptom", symptomId);
+                        
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+        }
+
+
+
         private bool sqlProcessForSignUp(string connectionString,string name,string surname,bool gender,DateTime birth_date,string tc_no_hash,string email, string phone_number,int blood_sugar,string password_hash,string salt)//profil resmi opsiyonel
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
+                conn.Open();//sql bağlantısına sahibiz şu anda 
+                string query_for_get_symptom_names = "SELECT id FROM tbl_symptoms WHERE symptom_name = ";
+                string query_for_symptoms_save = "INSERT INTO tbl_patient_symptoms (patient_id, symptom_id) VALUES () ";
                 string query = "INSERT INTO tbl_patients (name, surname, gender, birth_date, tc_no_hash, email, phone_number, blood_sugar, password_hash, salt) VALUES (@name, @surname, @gender, @birth_date, @tc_no_hash, @email, @phone_number, @blood_sugar, @password_hash, @salt)";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -268,11 +412,43 @@ namespace ProLab3
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ChooseSymptoms chooseSymptoms=new ChooseSymptoms();
-            chooseSymptoms.ShowDialog();
+       
 
+        private void buttonChooseSymptoms_Click(object sender, EventArgs e)
+        {
+            
+            chooseSymptoms2.ShowDialog();
+            if (PatientInfo.PatientSymptoms.Count > 0)
+            {
+                buttonChooseSymptoms.Text = "Belirti seçimi tamamlandı!";
+                buttonChooseSymptoms.BackColor = Color.Green;
+            }
+            else
+            {
+                buttonChooseSymptoms.Text = "Belirti seçilmedi!";
+                buttonChooseSymptoms.BackColor = Color.Red;
+            }
+        }
+        private Size originalSize;
+        private Point originalLocation;
+        private void buttonChooseSymptoms_MouseEnter(object sender, EventArgs e)
+        {
+
+
+            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+            originalSize = btn.Size;
+            originalLocation = btn.Location;
+
+            // Hafif büyütme
+            btn.Size = new Size(btn.Width + 6, btn.Height + 6);
+            btn.Location = new Point(btn.Location.X - 3, btn.Location.Y - 3);
+        }
+
+        private void buttonChooseSymptoms_MouseLeave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
+            btn.Size = originalSize;
+            btn.Location = originalLocation;
         }
     }
 }

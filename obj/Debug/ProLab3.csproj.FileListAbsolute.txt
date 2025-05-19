@@ -16,3 +16,4 @@ B:\SonProLab3\ProLab3\obj\Debug\ProLab3.AddPatientScreen.resources
 B:\SonProLab3\ProLab3\obj\Debug\ProLab3.PatientScreen.resources
 B:\SonProLab3\ProLab3\obj\Debug\ProLab3.ChooseSymptoms.resources
 B:\SonProLab3\ProLab3\obj\Debug\ProLab3.ChooseSymptoms2.resources
+B:\SonProLab3\ProLab3\obj\Debug\ProLab3.exe.config

@@ -41,7 +41,7 @@ namespace ProLab3
             this.btnLogPat.Location = new System.Drawing.Point(421, 325);
             this.btnLogPat.Name = "btnLogPat";
             this.btnLogPat.Size = new System.Drawing.Size(257, 79);
-            this.btnLogPat.TabIndex = 0;
+            this.btnLogPat.TabIndex = 1;
             this.btnLogPat.Text = "Hasta Girişi";
             this.btnLogPat.UseVisualStyleBackColor = true;
             this.btnLogPat.Click += new System.EventHandler(this.btnLogPat_Click);
@@ -55,7 +55,7 @@ namespace ProLab3
             this.btnLogDoc.Location = new System.Drawing.Point(421, 232);
             this.btnLogDoc.Name = "btnLogDoc";
             this.btnLogDoc.Size = new System.Drawing.Size(258, 87);
-            this.btnLogDoc.TabIndex = 1;
+            this.btnLogDoc.TabIndex = 0;
             this.btnLogDoc.Text = "Doktor Girişi";
             this.btnLogDoc.UseVisualStyleBackColor = true;
             this.btnLogDoc.Click += new System.EventHandler(this.btnLogDoc_Click);

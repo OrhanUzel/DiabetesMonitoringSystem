@@ -35,25 +35,10 @@ namespace ProLab3
             InitializeCustomComponents();
         }
 
-        private void InitializesComponent()
-        {
-            this.SuspendLayout();
-
-            // Form özellikleri
-            this.ClientSize = new Size(800, 600);
-            this.Text = "Hasta Belirti Seçim Ekranı";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-            this.BackColor = Color.FromArgb(245, 247, 250);
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = true;
-
-            this.ResumeLayout(false);
-        }
 
         private void InitializeCustomComponents()
         {
+
             // Üst başlık paneli
             Panel headerPanel = new Panel
             {
@@ -140,6 +125,7 @@ namespace ProLab3
                     Location = new Point(10, 10),
                     Width = belirtiPanel.Width - 20,
                     ForeColor = Color.FromArgb(44, 62, 80)
+                    
                 };
 
                 belirtiCheckBox.CheckedChanged += BelirtiCheckBox_CheckedChanged;
@@ -214,9 +200,9 @@ namespace ProLab3
                 if (checkBox.Checked)
                 {
                     // Belirti listede yoksa ekleyelim
-                    if (!secilenBelirtiler.Contains(belirti))
+                    if (!PatientInfo.PatientSymptoms.Contains(belirti))
                     {
-                        secilenBelirtiler.Add(belirti);
+                        PatientInfo.PatientSymptoms.Add(belirti);
                         if (secilenListBox != null)
                         {
                             secilenListBox.Items.Add($"{belirti} - {belirtiAciklamalari[belirti]}");
@@ -226,9 +212,9 @@ namespace ProLab3
                 else
                 {
                     // Belirti listede varsa çıkaralım
-                    if (secilenBelirtiler.Contains(belirti))
+                    if (PatientInfo.PatientSymptoms.Contains(belirti))
                     {
-                        secilenBelirtiler.Remove(belirti);
+                        PatientInfo.PatientSymptoms.Remove(belirti);
                         if (secilenListBox != null)
                         {
                             for (int i = 0; i < secilenListBox.Items.Count; i++)
@@ -248,7 +234,7 @@ namespace ProLab3
 
         private void TamamlaButton_Click(object sender, EventArgs e)
         {
-            if (secilenBelirtiler.Count == 0)
+            if (PatientInfo.PatientSymptoms.Count == 0)
             {
                 MessageBox.Show("Lütfen en az bir belirti seçiniz.", "Uyarı",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -259,7 +245,7 @@ namespace ProLab3
            // SonucFormu sonucForm = new SonucFormu(secilenBelirtiler);
             this.Hide();
            // sonucForm.ShowDialog();
-            this.Close();
+            //this.Close();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,7 @@ namespace ProLab3
             InitializeComponent();
         }
 
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void DoctorScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -34,7 +32,52 @@ namespace ProLab3
 
         private void DoctorScreen_Load(object sender, EventArgs e)
         {
-            
+            string connectionString = "Server=ORHANUZEL\\SQLEXPRESS;Database=DiabetesMonitoringSystem;Trusted_Connection=True;"; // Güncelle
+
+          //  string strConnString = "myconnectionstring"; // get it from Web.config file
+            SqlTransaction objTrans = null;
+
+            using (SqlConnection objConn = new SqlConnection(connectionString))
+            {
+                objConn.Open();
+                objTrans = objConn.BeginTransaction();
+                SqlCommand objCmd1 = new SqlCommand("SELECT * FROM tbl_patients", objConn);
+                SqlCommand objCmd2 = new SqlCommand("insert into tblProjectMember(MemberID, ProjectID) values(2, 1)", objConn);
+                try
+                {
+                    SqlDataReader reader = objCmd1.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ListViewItem item = new ListViewItem(reader["id"].ToString());
+                        item.SubItems.Add(reader["name"].ToString());
+                        item.SubItems.Add(reader["surname"].ToString());
+                        item.SubItems.Add(reader["gender"].ToString());
+                        item.SubItems.Add(reader["birth_date"].ToString());
+                        item.SubItems.Add(reader["email"].ToString());
+                        item.SubItems.Add(reader["blood_sugar"].ToString());
+                        item.SubItems.Add(reader["phone_number"].ToString());
+                       // item.SubItems.Add(reader["surname"].ToString());
+
+
+
+                        listViewPatientsInfos.Items.Add(item);
+                    }
+
+                    reader.Close();
+
+                    //objCmd1.ExecuteNonQuery();
+                    // objCmd2.ExecuteNonQuery(); // Throws exception due to foreign key constraint
+                    objTrans.Commit();
+                }
+                catch (Exception)
+                {
+                    objTrans.Rollback();
+                }
+                finally
+                {
+                    objConn.Close();
+                }
+            }
         }
 
 

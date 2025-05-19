@@ -39,28 +39,25 @@
             this.labelPhone = new System.Windows.Forms.Label();
             this.labelBloodSugar = new System.Windows.Forms.Label();
             this.labelSymptoms = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelPasswordRepetition = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAddPatient = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.maskedTextBoxBirthDate = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxPasswordRepetition = new System.Windows.Forms.TextBox();
+            this.buttonChooseSymptoms = new System.Windows.Forms.Button();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxBloodSugar = new System.Windows.Forms.TextBox();
+            this.dateTimePickerBirthDay = new System.Windows.Forms.DateTimePicker();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxSurName = new System.Windows.Forms.TextBox();
             this.radioButtonWomen = new System.Windows.Forms.RadioButton();
             this.radioButtonMan = new System.Windows.Forms.RadioButton();
-            this.checkedListBoxSymptoms = new System.Windows.Forms.CheckedListBox();
             this.textBoxTC = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.maskedTextBoxPhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.toolTipDigitWarn = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dateTimePickerBirthDay = new System.Windows.Forms.DateTimePicker();
-            this.labelPassword = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.labelPasswordRepetition = new System.Windows.Forms.Label();
-            this.buttonChooseSymptoms = new System.Windows.Forms.Button();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxPasswordRepetition = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -98,7 +95,7 @@
             this.labelName.Location = new System.Drawing.Point(3, 0);
             this.labelName.Name = "labelName";
             this.labelName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelName.Size = new System.Drawing.Size(201, 40);
+            this.labelName.Size = new System.Drawing.Size(209, 40);
             this.labelName.TabIndex = 10;
             this.labelName.Text = "Ad:";
             // 
@@ -110,7 +107,7 @@
             this.labelSurName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelSurName.Location = new System.Drawing.Point(3, 40);
             this.labelSurName.Name = "labelSurName";
-            this.labelSurName.Size = new System.Drawing.Size(201, 40);
+            this.labelSurName.Size = new System.Drawing.Size(209, 40);
             this.labelSurName.TabIndex = 12;
             this.labelSurName.Text = "Soyad:";
             // 
@@ -122,7 +119,7 @@
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelGender.Location = new System.Drawing.Point(3, 80);
             this.labelGender.Name = "labelGender";
-            this.labelGender.Size = new System.Drawing.Size(201, 40);
+            this.labelGender.Size = new System.Drawing.Size(209, 40);
             this.labelGender.TabIndex = 13;
             this.labelGender.Text = "Cinsiyet:";
             // 
@@ -134,7 +131,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(3, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 40);
+            this.label1.Size = new System.Drawing.Size(209, 40);
             this.label1.TabIndex = 21;
             this.label1.Text = "Doğum Tarihi:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -147,7 +144,7 @@
             this.labelTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelTC.Location = new System.Drawing.Point(3, 160);
             this.labelTC.Name = "labelTC";
-            this.labelTC.Size = new System.Drawing.Size(201, 40);
+            this.labelTC.Size = new System.Drawing.Size(209, 40);
             this.labelTC.TabIndex = 14;
             this.labelTC.Text = "T.C. No:";
             // 
@@ -159,7 +156,7 @@
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelEmail.Location = new System.Drawing.Point(3, 200);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(201, 40);
+            this.labelEmail.Size = new System.Drawing.Size(209, 40);
             this.labelEmail.TabIndex = 15;
             this.labelEmail.Text = "Eposta:";
             // 
@@ -171,7 +168,7 @@
             this.labelPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelPhone.Location = new System.Drawing.Point(3, 240);
             this.labelPhone.Name = "labelPhone";
-            this.labelPhone.Size = new System.Drawing.Size(201, 40);
+            this.labelPhone.Size = new System.Drawing.Size(209, 40);
             this.labelPhone.TabIndex = 16;
             this.labelPhone.Text = "Telefon No:";
             // 
@@ -179,9 +176,9 @@
             // 
             this.labelBloodSugar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelBloodSugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelBloodSugar.Location = new System.Drawing.Point(4, 280);
+            this.labelBloodSugar.Location = new System.Drawing.Point(3, 280);
             this.labelBloodSugar.Name = "labelBloodSugar";
-            this.labelBloodSugar.Size = new System.Drawing.Size(198, 37);
+            this.labelBloodSugar.Size = new System.Drawing.Size(209, 37);
             this.labelBloodSugar.TabIndex = 20;
             this.labelBloodSugar.Text = "Kan Şekeri:";
             // 
@@ -191,11 +188,31 @@
             this.labelSymptoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelSymptoms.Location = new System.Drawing.Point(3, 317);
             this.labelSymptoms.Name = "labelSymptoms";
-            this.labelSymptoms.Size = new System.Drawing.Size(198, 46);
+            this.labelSymptoms.Size = new System.Drawing.Size(209, 46);
             this.labelSymptoms.TabIndex = 19;
             this.labelSymptoms.Text = "Belirti Türleri:";
             this.labelSymptoms.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSymptoms.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // labelPassword
+            // 
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelPassword.Location = new System.Drawing.Point(3, 363);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(201, 37);
+            this.labelPassword.TabIndex = 27;
+            this.labelPassword.Text = "Şifre:";
+            this.labelPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelPasswordRepetition
+            // 
+            this.labelPasswordRepetition.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelPasswordRepetition.Location = new System.Drawing.Point(3, 400);
+            this.labelPasswordRepetition.Name = "labelPasswordRepetition";
+            this.labelPasswordRepetition.Size = new System.Drawing.Size(201, 37);
+            this.labelPasswordRepetition.TabIndex = 28;
+            this.labelPasswordRepetition.Text = "Şifre Tekrarı:";
+            this.labelPasswordRepetition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -247,15 +264,40 @@
             this.panel1.Size = new System.Drawing.Size(310, 449);
             this.panel1.TabIndex = 26;
             // 
-            // maskedTextBoxBirthDate
+            // textBoxPasswordRepetition
             // 
-            this.maskedTextBoxBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.maskedTextBoxBirthDate.Location = new System.Drawing.Point(-19, 170);
-            this.maskedTextBoxBirthDate.Mask = "00/00/0000";
-            this.maskedTextBoxBirthDate.Name = "maskedTextBoxBirthDate";
-            this.maskedTextBoxBirthDate.Size = new System.Drawing.Size(157, 37);
-            this.maskedTextBoxBirthDate.TabIndex = 15;
-            this.maskedTextBoxBirthDate.ValidatingType = typeof(System.DateTime);
+            this.textBoxPasswordRepetition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxPasswordRepetition.Location = new System.Drawing.Point(3, 404);
+            this.textBoxPasswordRepetition.Margin = new System.Windows.Forms.Padding(80, 3, 3, 3);
+            this.textBoxPasswordRepetition.Name = "textBoxPasswordRepetition";
+            this.textBoxPasswordRepetition.Size = new System.Drawing.Size(301, 35);
+            this.textBoxPasswordRepetition.TabIndex = 11;
+            this.textBoxPasswordRepetition.UseSystemPasswordChar = true;
+            // 
+            // buttonChooseSymptoms
+            // 
+            this.buttonChooseSymptoms.BackColor = System.Drawing.Color.Yellow;
+            this.buttonChooseSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonChooseSymptoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonChooseSymptoms.Location = new System.Drawing.Point(3, 317);
+            this.buttonChooseSymptoms.Name = "buttonChooseSymptoms";
+            this.buttonChooseSymptoms.Size = new System.Drawing.Size(301, 46);
+            this.buttonChooseSymptoms.TabIndex = 9;
+            this.buttonChooseSymptoms.Text = "Belirtileri Seç";
+            this.buttonChooseSymptoms.UseVisualStyleBackColor = false;
+            this.buttonChooseSymptoms.Click += new System.EventHandler(this.buttonChooseSymptoms_Click);
+            this.buttonChooseSymptoms.MouseEnter += new System.EventHandler(this.buttonChooseSymptoms_MouseEnter);
+            this.buttonChooseSymptoms.MouseLeave += new System.EventHandler(this.buttonChooseSymptoms_MouseLeave);
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxPassword.Location = new System.Drawing.Point(3, 363);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(80, 3, 3, 3);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(301, 35);
+            this.textBoxPassword.TabIndex = 10;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxBloodSugar
             // 
@@ -267,6 +309,15 @@
             this.textBoxBloodSugar.Text = "(mg/dL cinsinden)";
             this.textBoxBloodSugar.Enter += new System.EventHandler(this.textBoxBloodSugar_Enter);
             this.textBoxBloodSugar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBloodSugar_KeyPress);
+            // 
+            // dateTimePickerBirthDay
+            // 
+            this.dateTimePickerBirthDay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateTimePickerBirthDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dateTimePickerBirthDay.Location = new System.Drawing.Point(3, 126);
+            this.dateTimePickerBirthDay.Name = "dateTimePickerBirthDay";
+            this.dateTimePickerBirthDay.Size = new System.Drawing.Size(301, 35);
+            this.dateTimePickerBirthDay.TabIndex = 4;
             // 
             // textBoxName
             // 
@@ -310,24 +361,6 @@
             this.radioButtonMan.Text = "Erkek";
             this.radioButtonMan.UseVisualStyleBackColor = true;
             // 
-            // checkedListBoxSymptoms
-            // 
-            this.checkedListBoxSymptoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkedListBoxSymptoms.FormattingEnabled = true;
-            this.checkedListBoxSymptoms.Items.AddRange(new object[] {
-            "Poliüri",
-            "Polifaji",
-            "Polidipsi",
-            "Nöropati",
-            "Kilo kaybı",
-            "Yorgunluk",
-            "Yaraların yavaş iyileşmesi",
-            "Bulanık görme"});
-            this.checkedListBoxSymptoms.Location = new System.Drawing.Point(-16, 215);
-            this.checkedListBoxSymptoms.Name = "checkedListBoxSymptoms";
-            this.checkedListBoxSymptoms.Size = new System.Drawing.Size(186, 62);
-            this.checkedListBoxSymptoms.TabIndex = 13;
-            // 
             // textBoxTC
             // 
             this.textBoxTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -362,78 +395,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // dateTimePickerBirthDay
-            // 
-            this.dateTimePickerBirthDay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePickerBirthDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePickerBirthDay.Location = new System.Drawing.Point(3, 126);
-            this.dateTimePickerBirthDay.Name = "dateTimePickerBirthDay";
-            this.dateTimePickerBirthDay.Size = new System.Drawing.Size(301, 35);
-            this.dateTimePickerBirthDay.TabIndex = 4;
-            // 
-            // labelPassword
-            // 
-            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelPassword.Location = new System.Drawing.Point(3, 363);
-            this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(201, 37);
-            this.labelPassword.TabIndex = 27;
-            this.labelPassword.Text = "Şifre:";
-            this.labelPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(44, 380);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(126, 24);
-            this.radioButton1.TabIndex = 27;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // labelPasswordRepetition
-            // 
-            this.labelPasswordRepetition.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelPasswordRepetition.Location = new System.Drawing.Point(3, 400);
-            this.labelPasswordRepetition.Name = "labelPasswordRepetition";
-            this.labelPasswordRepetition.Size = new System.Drawing.Size(201, 37);
-            this.labelPasswordRepetition.TabIndex = 28;
-            this.labelPasswordRepetition.Text = "Şifre Tekrarı:";
-            this.labelPasswordRepetition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonChooseSymptoms
-            // 
-            this.buttonChooseSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonChooseSymptoms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonChooseSymptoms.Location = new System.Drawing.Point(49, 317);
-            this.buttonChooseSymptoms.Name = "buttonChooseSymptoms";
-            this.buttonChooseSymptoms.Size = new System.Drawing.Size(214, 40);
-            this.buttonChooseSymptoms.TabIndex = 9;
-            this.buttonChooseSymptoms.Text = "Belirtileri Seç";
-            this.buttonChooseSymptoms.UseVisualStyleBackColor = true;
-            this.buttonChooseSymptoms.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxPassword.Location = new System.Drawing.Point(3, 363);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(80, 3, 3, 3);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(301, 35);
-            this.textBoxPassword.TabIndex = 10;
-            this.textBoxPassword.UseSystemPasswordChar = true;
-            // 
-            // textBoxPasswordRepetition
-            // 
-            this.textBoxPasswordRepetition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxPasswordRepetition.Location = new System.Drawing.Point(3, 404);
-            this.textBoxPasswordRepetition.Margin = new System.Windows.Forms.Padding(80, 3, 3, 3);
-            this.textBoxPasswordRepetition.Name = "textBoxPasswordRepetition";
-            this.textBoxPasswordRepetition.Size = new System.Drawing.Size(301, 35);
-            this.textBoxPasswordRepetition.TabIndex = 11;
-            this.textBoxPasswordRepetition.UseSystemPasswordChar = true;
-            // 
             // AddPatientScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -441,13 +402,10 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1027, 664);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.maskedTextBoxBirthDate);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonAddPatient);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.flowLayoutPanel4);
-            this.Controls.Add(this.checkedListBoxSymptoms);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "AddPatientScreen";
@@ -460,7 +418,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -484,15 +441,12 @@
         private System.Windows.Forms.TextBox textBoxTC;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPhoneNumber;
-        private System.Windows.Forms.CheckedListBox checkedListBoxSymptoms;
         private System.Windows.Forms.TextBox textBoxBloodSugar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxBirthDate;
         private System.Windows.Forms.ToolTip toolTipDigitWarn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DateTimePicker dateTimePickerBirthDay;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label labelPasswordRepetition;
         private System.Windows.Forms.Button buttonChooseSymptoms;
         private System.Windows.Forms.TextBox textBoxPassword;
