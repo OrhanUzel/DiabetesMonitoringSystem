@@ -33,10 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,12 +71,6 @@
     <Compile Include="ChooseSymptoms.Designer.cs">
       <DependentUpon>ChooseSymptoms.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChooseSymptoms2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChooseSymptoms2.Designer.cs">
-      <DependentUpon>ChooseSymptoms2.cs</DependentUpon>
-    </Compile>
     <Compile Include="DoctorScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +78,24 @@
       <DependentUpon>DoctorScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Encryption.cs" />
+    <Compile Include="GunaDenemesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GunaDenemesi.Designer.cs">
+      <DependentUpon>GunaDenemesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HastaBilgiEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HastaBilgiEkrani.Designer.cs">
+      <DependentUpon>HastaBilgiEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientDetailScreenFromDoctorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientDetailScreenFromDoctorScreen.Designer.cs">
+      <DependentUpon>PatientDetailScreenFromDoctorScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientInfo.cs" />
     <Compile Include="PatientScreen.cs">
       <SubType>Form</SubType>
@@ -115,11 +133,17 @@
     <EmbeddedResource Include="ChooseSymptoms.resx">
       <DependentUpon>ChooseSymptoms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChooseSymptoms2.resx">
-      <DependentUpon>ChooseSymptoms2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DoctorScreen.resx">
       <DependentUpon>DoctorScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GunaDenemesi.resx">
+      <DependentUpon>GunaDenemesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HastaBilgiEkrani.resx">
+      <DependentUpon>HastaBilgiEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientDetailScreenFromDoctorScreen.resx">
+      <DependentUpon>PatientDetailScreenFromDoctorScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientScreen.resx">
       <DependentUpon>PatientScreen.cs</DependentUpon>
@@ -143,6 +167,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\DoctorScreen.datasource" />
+    <None Include="Properties\DataSources\PatientInfo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -167,6 +194,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\profile-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\eye_closed.png" />
+    <Content Include="Resources\eye_open.png" />
+    <Content Include="Resources\profile_image_female.png" />
+    <Content Include="Resources\profile_image_male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

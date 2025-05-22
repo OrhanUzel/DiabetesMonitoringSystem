@@ -19,7 +19,7 @@ namespace ProLab3
 {
     public partial class AddPatientScreen : Form
     {
-        ChooseSymptoms2 chooseSymptoms2 = new ChooseSymptoms2();
+        ChooseSymptoms chooseSymptoms2 = new ChooseSymptoms();
         public AddPatientScreen()
         {
             InitializeComponent();

@@ -16,7 +16,7 @@ namespace ProLab3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartScreen());
+            Application.Run(new ChooseSymptoms());
         }
     }
 }

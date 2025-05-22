@@ -15,5 +15,9 @@ B:\SonProLab3\ProLab3\obj\Debug\ProLab3.DoctorScreen.resources
 B:\SonProLab3\ProLab3\obj\Debug\ProLab3.AddPatientScreen.resources
 B:\SonProLab3\ProLab3\obj\Debug\ProLab3.PatientScreen.resources
 B:\SonProLab3\ProLab3\obj\Debug\ProLab3.ChooseSymptoms.resources
-B:\SonProLab3\ProLab3\obj\Debug\ProLab3.ChooseSymptoms2.resources
 B:\SonProLab3\ProLab3\obj\Debug\ProLab3.exe.config
+B:\SonProLab3\ProLab3\obj\Debug\ProLab3.HastaBilgiEkrani.resources
+B:\SonProLab3\ProLab3\bin\Debug\Guna.UI2.dll
+B:\SonProLab3\ProLab3\obj\Debug\ProLab3.GunaDenemesi.resources
+B:\SonProLab3\ProLab3\obj\Debug\ProLab3.csproj.Up2Date
+B:\SonProLab3\ProLab3\obj\Debug\ProLab3.PatientDetailScreenFromDoctorScreen.resources
