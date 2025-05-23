@@ -12,18 +12,21 @@ namespace ProLab3
 {
     public partial class ChooseSymptoms : Form
     {
+        List<CheckBox> checkBoxlist=new List<CheckBox>();
+        AddPatientScreen addPatientScreen;
+        List<string> symptomList=new List<string>();
         // Belirti tanımları ve açıklamaları
-        private readonly Dictionary<string, string> belirtiAciklamalari = new Dictionary<string, string>
-        {
-            { "Poliüri", "Sık idrara çıkma" },
-            { "Polifaji", "Aşırı açlık hissi" },
-            { "Polidipsi", "Aşırı susama hissi" },
-            { "Nöropati", "El ve ayaklarda karıncalanma veya uyuşma hissi" },
-            { "Kilo kaybı", "İstemsiz kilo kaybı yaşanması" },
-            { "Yorgunluk", "Sürekli yorgunluk ve halsizlik hissi" },
-            { "Yaraların yavaş iyileşmesi", "Kesik ve yaraların normalden uzun sürede iyileşmesi" },
-            { "Bulanık görme", "Net görememe ve görüş bulanıklığı" }
-        };
+        //private readonly Dictionary<string, string> belirtiAciklamalari = new Dictionary<string, string>
+        //{
+        //    { "Poliüri", "Sık idrara çıkma" },
+        //    { "Polifaji", "Aşırı açlık hissi" },
+        //    { "Polidipsi", "Aşırı susama hissi" },
+        //    { "Nöropati", "El ve ayaklarda karıncalanma veya uyuşma hissi" },
+        //    { "Kilo kaybı", "İstemsiz kilo kaybı yaşanması" },
+        //    { "Yorgunluk", "Sürekli yorgunluk ve halsizlik hissi" },
+        //    { "Yaraların yavaş iyileşmesi", "Kesik ve yaraların normalden uzun sürede iyileşmesi" },
+        //    { "Bulanık görme", "Net görememe ve görüş bulanıklığı" }
+        //};
 
         // UI elemanlarını global olarak tanımlayalım ki erişim kolaylaşsın
         private ListBox secilenBelirtilerListBox;
@@ -35,6 +38,20 @@ namespace ProLab3
         {
             InitializeComponent();
 
+            // Form temel özellikleri
+            this.Text = "Hasta Belirti Seçimi";
+            this.Size = new Size(700, 600);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.MinimumSize = new Size(600, 500);
+
+            InitializeCustomComponents();
+        }
+        public ChooseSymptoms(List<string> symptomList)//hali hazırda oluşturulmuş bir hastanın beliritlerini görüntülemek için 
+        {
+            this.symptomList = symptomList;
+            //this.addPatientScreen = addPatientScreen;
+            InitializeComponent();
+            
             // Form temel özellikleri
             this.Text = "Hasta Belirti Seçimi";
             this.Size = new Size(700, 600);
@@ -123,14 +140,23 @@ namespace ProLab3
                 AutoScroll = true,
                 Padding = new Padding(5)
             };
+            secilenBelirtilerListBox = new ListBox //kullanılmadan önce tanımlanmalı
+            {
+                Dock = DockStyle.Fill,
+                Font = new Font("Segoe UI", 10F, FontStyle.Regular),
+                BackColor = Color.FromArgb(253, 254, 254),
+                BorderStyle = BorderStyle.None,
+                Name = "secilenBelirtilerListBox"
+            };
 
             // Belirtileri ekleyelim - artık doğrudan CheckBox olarak
             int yPos = 10;
             int index = 0;
-            foreach (var belirti in belirtiAciklamalari)
+            foreach (var belirti in PatientInfo.dictSymptoms)
             {
                 CheckBox belirtiCheckBox = new CheckBox
                 {
+
                     Text = $"{belirti.Key} ({belirti.Value})",
                     Tag = belirti.Key,
                     Font = new Font("Segoe UI", 10F, FontStyle.Regular),
@@ -140,7 +166,19 @@ namespace ProLab3
                     ForeColor = Color.FromArgb(44, 62, 80),
                     BackColor = index % 2 == 0 ? Color.FromArgb(240, 243, 244) : Color.FromArgb(236, 240, 241)
                 };
+                if (symptomList.Count > 0)
+                {
+                    foreach (string sym in symptomList)
+                    {
+                        if (sym == belirti.Value)
+                        {
+                            belirtiCheckBox.Checked = true;
+                            secilenBelirtilerListBox.Items.Add($"{belirti.Key} - {belirti.Value}");
 
+                            // hastaya ait belirti idlerini ve belirti isimlerini alt tarafında liste şeklinde gösterme
+                        }
+                    }
+                }
                 belirtiCheckBox.CheckedChanged += BelirtiCheckBox_CheckedChanged;
                 belirtiPanel.Controls.Add(belirtiCheckBox);
                 yPos += 35; // Her checkbox arasında boşluk bırakalım
@@ -160,14 +198,7 @@ namespace ProLab3
                 Padding = new Padding(10)
             };
 
-            secilenBelirtilerListBox = new ListBox
-            {
-                Dock = DockStyle.Fill,
-                Font = new Font("Segoe UI", 10F, FontStyle.Regular),
-                BackColor = Color.FromArgb(253, 254, 254),
-                BorderStyle = BorderStyle.None,
-                Name = "secilenBelirtilerListBox"
-            };
+           
 
             secilenBelirtilerGroupBox.Controls.Add(secilenBelirtilerListBox);
             tableLayout.Controls.Add(secilenBelirtilerGroupBox, 0, 1);
@@ -237,27 +268,32 @@ namespace ProLab3
             CheckBox checkBox = sender as CheckBox;
             if (checkBox != null)
             {
-                string belirti = checkBox.Tag.ToString();
-
+                string belirtiKey = checkBox.Tag.ToString();
+                string belirtiValue = PatientInfo.dictSymptoms[belirtiKey];
                 if (checkBox.Checked)
                 {
-                    // Belirti listede yoksa ekleyelim
-                    if (!PatientInfo.PatientSymptoms.Contains(belirti))
+                    // Belirti listede yoksa ekleyelim// değiştirildi
+                    if (!symptomList.Contains(belirtiValue))
                     {
-                        PatientInfo.PatientSymptoms.Add(belirti);
-                        secilenBelirtilerListBox.Items.Add($"{belirti} - {belirtiAciklamalari[belirti]}");
+                        PatientInfo.PatientSymptoms.Add(belirtiValue);
+                        //PatientInfo.PatientSymptoms.Add(belirti);
+                        symptomList.Add(belirtiValue);
+                        secilenBelirtilerListBox.Items.Add($"{belirtiKey} - {PatientInfo.dictSymptoms[belirtiKey]}");
                     }
                 }
                 else
                 {
-                    // Belirti listede varsa çıkaralım
-                    if (PatientInfo.PatientSymptoms.Contains(belirti))
+                    // Belirti listede varsa çıkaralım// PatientInfo.PatientSymptoms.Contains(belirti) değiştirilidi symptomList ile
+                    if (symptomList.Contains(belirtiValue))
                     {
-                        PatientInfo.PatientSymptoms.Remove(belirti);
+                        //PatientInfo.PatientSymptoms.Remove(belirti);
+                        symptomList.Remove(belirtiValue);
+                        PatientInfo.PatientSymptoms.Remove(belirtiValue);
                         for (int i = 0; i < secilenBelirtilerListBox.Items.Count; i++)
                         {
                             string item = secilenBelirtilerListBox.Items[i].ToString();
-                            if (item.StartsWith(belirti))
+                            //if (item.StartsWith(belirtiValue))
+                            if(item==belirtiKey+" - "+belirtiValue)
                             {
                                 secilenBelirtilerListBox.Items.RemoveAt(i);
                                 break;
@@ -282,6 +318,11 @@ namespace ProLab3
             this.Hide();
             // sonucForm.ShowDialog();
             // this.Close();
+        }
+
+        private void ChooseSymptoms_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
         }
     }
 }

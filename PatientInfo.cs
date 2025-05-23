@@ -10,6 +10,8 @@ namespace ProLab3
     {
         //for AddPatients screen 
         static internal List<string> PatientSymptoms = new List<string>();
+        static internal Dictionary<string, string> dictSymptoms = new Dictionary<string, string>();
+        static internal List<string> updatedPatientSymptoms=new List<string>(); 
         internal int id;
         internal string name;
         internal string surname;
@@ -33,6 +35,22 @@ namespace ProLab3
             this.phone_number = phone_number;
             //this.profile_image = profile_image;
             this.symptoms = symptoms;
+        }
+        public PatientInfo(int id, string name, string surname, bool gender, DateTime birth_date, string email, string phone_number, List<byte> profile_image)
+        {
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+            this.gender = gender;
+            this.birth_date = birth_date;
+            this.email = email;
+            this.phone_number = phone_number;
+            this.profile_image = profile_image;
+            
+        }
+        public PatientInfo()
+        {
+
         }
     }
 }

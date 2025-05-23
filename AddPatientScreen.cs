@@ -19,16 +19,24 @@ namespace ProLab3
 {
     public partial class AddPatientScreen : Form
     {
+        DoctorScreen dc_screen;
         ChooseSymptoms chooseSymptoms2 = new ChooseSymptoms();
         public AddPatientScreen()
         {
             InitializeComponent();
         }
+        public AddPatientScreen(DoctorScreen dc_screen)
+        {
+            this.dc_screen = dc_screen;
+            InitializeComponent();
+        }
 
         private void AddPatientScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.Hide();
+            dc_screen.Show();
             //chooseSymptoms2.Close();
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -78,6 +86,7 @@ namespace ProLab3
 
         private void AddPatientScreen_Load(object sender, EventArgs e)
         {
+            PatientInfo.PatientSymptoms.Clear();
             textBoxBloodSugar.ForeColor = Color.Gray;
 
         }
@@ -98,7 +107,7 @@ namespace ProLab3
         private void buttonAddPatient_Click(object sender, EventArgs e)
         {
            
-           //MessageBox.Show("telefon numarası:" + maskedTextBoxPhone.Text, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("telefon numarası:" + maskedTextBoxPhone.Text, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             string name = textBoxName.Text.Trim();
             string surname=textBoxSurName.Text.Trim();
             //string birth_date=maskedTextBoxBirthDate.Text.Trim();
@@ -172,6 +181,7 @@ namespace ProLab3
 
         private bool sqlProcessForSignUpWithTransaction(string connectionString, string name, string surname, bool gender, DateTime birth_date, string tc_no_hash, string email, string phone_number, int blood_sugar, string password_hash, string salt)
         {
+           
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -248,6 +258,7 @@ namespace ProLab3
                         Console.WriteLine("Tüm tablolardaki işlemler başarıyla tamamlandı.");
                         return true;
                     }
+                  
                 }
                 catch (SqlException sqlEx)
                 {
@@ -259,7 +270,8 @@ namespace ProLab3
                     Console.WriteLine($"Line Number: {sqlEx.LineNumber}");
 
                     // Hatayı yeniden fırlat veya işle
-                    throw;
+                    //throw;
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -334,18 +346,22 @@ namespace ProLab3
         {
             try
             {
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com"; // Doğru SMTP sunucusu
+                smtp.Port = 465; // Doğru port (Gmail için 587 veya 465)
+
+                string senderPassword = Environment.GetEnvironmentVariable("MAIL_PASSWORD");
+
+                smtp.Credentials = new NetworkCredential("diyabettakibisistemi@gmail.com", senderPassword);
+                smtp.EnableSsl = true;
+
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress("diyabettakibisistemi@gmail.com"); // Gönderici mail adresi
                 mail.To.Add(userEmail); // Alıcının mail adresi
                 mail.Subject = "Şifreniz";
                 mail.Body = $"Merhaba,\n\nKaydınız başarıyla gerçekleşti. Şifreniz: {userPassword}\n\nLütfen kimseyle paylaşmayınız.";
 
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587); // Gmail SMTP
-
-                string senderPassword = Environment.GetEnvironmentVariable("MAIL_PASSWORD");
-
-                smtp.Credentials = new NetworkCredential("diyabettakibisistemi@gmail.com", senderPassword);
-                smtp.EnableSsl = true;
 
                 smtp.Send(mail);
 

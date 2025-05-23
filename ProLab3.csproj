@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -71,6 +68,12 @@
     <Compile Include="ChooseSymptoms.Designer.cs">
       <DependentUpon>ChooseSymptoms.cs</DependentUpon>
     </Compile>
+    <Compile Include="DietExerciseRecommendationForm .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DietExerciseRecommendationForm .Designer.cs">
+      <DependentUpon>DietExerciseRecommendationForm .cs</DependentUpon>
+    </Compile>
     <Compile Include="DoctorScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,18 +81,6 @@
       <DependentUpon>DoctorScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Encryption.cs" />
-    <Compile Include="GunaDenemesi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GunaDenemesi.Designer.cs">
-      <DependentUpon>GunaDenemesi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HastaBilgiEkrani.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HastaBilgiEkrani.Designer.cs">
-      <DependentUpon>HastaBilgiEkrani.cs</DependentUpon>
-    </Compile>
     <Compile Include="PatientDetailScreenFromDoctorScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,12 +88,6 @@
       <DependentUpon>PatientDetailScreenFromDoctorScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientInfo.cs" />
-    <Compile Include="PatientScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PatientScreen.Designer.cs">
-      <DependentUpon>PatientScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="StartScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +108,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PatientScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientScreen.Designer.cs">
+      <DependentUpon>PatientScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddPatientScreen.resx">
       <DependentUpon>AddPatientScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,17 +127,8 @@
     <EmbeddedResource Include="DoctorScreen.resx">
       <DependentUpon>DoctorScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GunaDenemesi.resx">
-      <DependentUpon>GunaDenemesi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HastaBilgiEkrani.resx">
-      <DependentUpon>HastaBilgiEkrani.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PatientDetailScreenFromDoctorScreen.resx">
       <DependentUpon>PatientDetailScreenFromDoctorScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PatientScreen.resx">
-      <DependentUpon>PatientScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartScreen.resx">
       <DependentUpon>StartScreen.cs</DependentUpon>
@@ -167,7 +149,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="PatientScreen.resx">
+      <DependentUpon>PatientScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\DoctorScreen.datasource" />
     <None Include="Properties\DataSources\PatientInfo.datasource" />
     <None Include="Properties\Settings.settings">
@@ -198,6 +182,8 @@
   <ItemGroup>
     <Content Include="Resources\eye_closed.png" />
     <Content Include="Resources\eye_open.png" />
+    <Content Include="Resources\profile-o7ipi9.png" />
+    <Content Include="Resources\profile.png" />
     <Content Include="Resources\profile_image_female.png" />
     <Content Include="Resources\profile_image_male.png" />
   </ItemGroup>

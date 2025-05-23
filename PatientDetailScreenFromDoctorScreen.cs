@@ -15,6 +15,8 @@ namespace ProLab3
 
     internal partial class PatientDetailScreenFromDoctorScreen : Form
     {
+        ChooseSymptoms chooseSymptoms;
+        List<string> pSymptomName=new List<string>();
         private PatientInfo currentPatient;
         private bool isEditMode = false;
 
@@ -25,7 +27,7 @@ namespace ProLab3
         private DateTimePicker dtpBirthDate;
         private ComboBox cmbGender;
         private ListBox lstSymptoms;
-        private Button btnEdit, btnSave, btnDelete, btnBack, btnChangeImage;
+        private Button btnEdit, btnSave, btnDelete, btnBack, btnChangeImage,btnSymptomEdit;
         private Label lblId;
 
         public PatientDetailScreenFromDoctorScreen(PatientInfo patient)
@@ -223,7 +225,23 @@ namespace ProLab3
             btnBack.Click += BtnBack_Click;
             this.Controls.Add(btnBack);
 
+            btnSymptomEdit=new Button();
+            btnSymptomEdit.Text = "Belirtileri Düzenle";
+            btnSymptomEdit.Location = new Point(230,600);
+            btnSymptomEdit.Size = new Size(100, 40);
+            btnSymptomEdit.BackColor = Color.DarkRed;
+            btnSymptomEdit.Click += btnSymptomEdit_Click;
+            this.Controls.Add(btnSymptomEdit);
+
+
             this.ResumeLayout(false);
+        }
+
+        private void btnSymptomEdit_Click(object sender, EventArgs e)
+        {
+             chooseSymptoms = new ChooseSymptoms(pSymptomName);
+             chooseSymptoms.Show();
+             //this.Hide();
         }
 
         private void InitializeControls()
@@ -267,10 +285,21 @@ namespace ProLab3
 
             // Semptomları listele
             lstSymptoms.Items.Clear();
-            foreach (string symptom in currentPatient.symptoms)
+            foreach(string s in PatientInfo.dictSymptoms.Keys)
             {
-                lstSymptoms.Items.Add(symptom);
+                foreach (string symptom in currentPatient.symptoms)
+                {
+                    if (s == symptom.Trim())//Trim is important process
+                    {
+                        pSymptomName.Add(PatientInfo.dictSymptoms[s]);
+                        lstSymptoms.Items.Add(PatientInfo.dictSymptoms[s]);
+                    }
+
+                    // lstSymptoms.Items.Add(symptom);
+                }
             }
+
+            
         }
 
         private void SetEditMode(bool editMode)
@@ -290,6 +319,9 @@ namespace ProLab3
 
             btnSave.Visible = editMode;
             btnEdit.Visible = !editMode;
+
+            btnSymptomEdit.Visible= editMode;
+            btnSymptomEdit.Visible = !editMode;
         }
 
         private void SavePatientData()

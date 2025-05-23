@@ -72,7 +72,7 @@ namespace ProLab3
             using (SqlConnection conn = new SqlConnection("Server=ORHANUZEL\\SQLEXPRESS;Database=DiabetesMonitoringSystem;Trusted_Connection=True;"))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT password_hash, salt FROM tbl_patients WHERE tc_no_hash = @Username", conn);
+                SqlCommand cmd = new SqlCommand("SELECT id,name,surname,gender,birth_date,email,phone_number,profile_image,password_hash,salt FROM tbl_patients WHERE tc_no_hash = @Username", conn);
                 cmd.Parameters.AddWithValue("@Username", tc_no_hash);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -86,8 +86,23 @@ namespace ProLab3
 
                     if (storedHash == inputHash)
                     {
+                        int id =Convert.ToInt32(reader["id"]);
+                        string name=reader["name"].ToString().Trim();
+                        string surname = reader["surname"].ToString().Trim();
+                        bool gender = (bool)reader["gender"];
+                        DateTime birth_date = Convert.ToDateTime(reader["birth_date"]);
+                        string email=reader["email"].ToString().Trim();
+                        string phone_number = reader["phone_number"].ToString().Trim();
+                        List<byte> profile_image=new List<byte>();
+                        if (reader["profile_image"] != DBNull.Value)//veri tabanında null ise bu şekilde alınıyor "null" yerine "DBNull.Value" olarak
+                        {
+                            profile_image = (List<byte>)reader["profile_image"];//sonuç belli değil
+                        }
+                        
+                        PatientInfo patient = new PatientInfo(id,name,surname,gender,birth_date,email,phone_number,profile_image);
+
                         MessageBox.Show("Giriş başarılı!");
-                        PatientScreen patientScreen = new PatientScreen();
+                        PatientScreen patientScreen = new PatientScreen(patient);
                         patientScreen.Show(this);
                         this.Hide();
                     }

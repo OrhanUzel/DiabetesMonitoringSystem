@@ -32,15 +32,16 @@ namespace ProLab3
         {
             this.SuspendLayout();
             // 
-            // ChooseSymptoms2
+            // ChooseSymptoms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 731);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "ChooseSymptoms2";
+            this.Name = "ChooseSymptoms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Belirtileri Seç";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChooseSymptoms_FormClosing);
             this.ResumeLayout(false);
 
         }

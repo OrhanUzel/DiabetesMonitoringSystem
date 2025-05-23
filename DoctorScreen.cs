@@ -14,7 +14,8 @@ namespace ProLab3
 {
     public partial class DoctorScreen : Form
     {
-        Dictionary<int, string> dictSymptoms = new Dictionary<int, string>();
+        //key data was integer before //now string and in PatientInfo class
+      // internal static Dictionary<string, string> dictSymptoms = new Dictionary<string, string>();
         BindingList<PatientInfo> patient_list = new BindingList<PatientInfo>();
        
         public DoctorScreen()
@@ -63,7 +64,7 @@ namespace ProLab3
                         {//veri tabanındaki belirtileri buradaki dict şeklindeki belirti listeesinde tutuyoruz...
                             if (!readerSymptoms.IsDBNull(0))
                             {  //id veritabanında tinyint olarak geldiği için sanırım direkt int olmuş olmuyor c# ta     
-                                dictSymptoms.Add(Convert.ToInt32(readerSymptoms["id"]),readerSymptoms["symptom_name"].ToString());
+                                PatientInfo.dictSymptoms.Add(readerSymptoms["id"].ToString(),readerSymptoms["symptom_name"].ToString());
                             }
 
                         }
@@ -93,8 +94,9 @@ namespace ProLab3
                             //}
                            
                             List<string> symptom_array = new List<string>();
-                            string[] symptomArray = reader["Symptoms"].ToString().Split(',');
+                            string[] symptomArray = reader["Symptoms"].ToString().Trim().Split(',');
                             symptom_array = symptomArray.ToList();
+                           // List<int> symptom_array_int = Convert.ToInt64(symptomArray);
                             PatientInfo patient=new PatientInfo(id,name,surname,gender,birth_date,email,blood_sugar,phone_number,symptom_array);
                             patient_list.Add(patient);//tüm hastaları hasta listesine kayıt ettim
                             i++;
@@ -215,7 +217,7 @@ namespace ProLab3
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
-            AddPatientScreen addPatientScreen = new AddPatientScreen();
+            AddPatientScreen addPatientScreen = new AddPatientScreen(this);
             addPatientScreen.Show();
             this.Hide();
         }
@@ -250,6 +252,11 @@ namespace ProLab3
                 // Yeni formu açın ve seçilen hastayı gönderin
                 //OpenPatientDetailsForm(selectedPatient);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
