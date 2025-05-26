@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageInfo = new System.Windows.Forms.TabPage();
             this.buttonRewind = new System.Windows.Forms.Button();
@@ -37,7 +39,7 @@
             this.buttonGoAdvises = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonChangeİmage = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxProfileImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -79,9 +81,10 @@
             this.ColumnVakit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTime2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HiddenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPageInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfileImage)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPageAdvises.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdvises)).BeginInit();
@@ -111,7 +114,7 @@
             this.tabPageInfo.Controls.Add(this.buttonGoAdvises);
             this.tabPageInfo.Controls.Add(this.buttonUpdate);
             this.tabPageInfo.Controls.Add(this.buttonChangeİmage);
-            this.tabPageInfo.Controls.Add(this.pictureBox1);
+            this.tabPageInfo.Controls.Add(this.pictureBoxProfileImage);
             this.tabPageInfo.Controls.Add(this.tableLayoutPanel1);
             this.tabPageInfo.Location = new System.Drawing.Point(4, 29);
             this.tabPageInfo.Name = "tabPageInfo";
@@ -142,6 +145,7 @@
             this.buttonSave.Text = "Kaydet";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Visible = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonGoMeasures
             // 
@@ -179,22 +183,24 @@
             // buttonChangeİmage
             // 
             this.buttonChangeİmage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonChangeİmage.Location = new System.Drawing.Point(540, 141);
+            this.buttonChangeİmage.Location = new System.Drawing.Point(538, 166);
             this.buttonChangeİmage.Name = "buttonChangeİmage";
             this.buttonChangeİmage.Size = new System.Drawing.Size(201, 51);
             this.buttonChangeİmage.TabIndex = 2;
             this.buttonChangeİmage.Text = "Profil Resmini Değiştir";
             this.buttonChangeİmage.UseVisualStyleBackColor = true;
             this.buttonChangeİmage.Visible = false;
+            this.buttonChangeİmage.Click += new System.EventHandler(this.buttonChangeİmage_Click);
             // 
-            // pictureBox1
+            // pictureBoxProfileImage
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(551, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(176, 129);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxProfileImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxProfileImage.Location = new System.Drawing.Point(538, 6);
+            this.pictureBoxProfileImage.Name = "pictureBoxProfileImage";
+            this.pictureBoxProfileImage.Size = new System.Drawing.Size(201, 154);
+            this.pictureBoxProfileImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxProfileImage.TabIndex = 1;
+            this.pictureBoxProfileImage.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -213,7 +219,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxPhone, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(294, 217);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(294, 223);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66651F));
@@ -241,10 +247,10 @@
             this.textBoxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxEmail.Enabled = false;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBoxEmail.Location = new System.Drawing.Point(189, 191);
             this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.ReadOnly = true;
             this.textBoxEmail.Size = new System.Drawing.Size(429, 35);
             this.textBoxEmail.TabIndex = 5;
             // 
@@ -253,10 +259,10 @@
             this.textBoxGender.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxGender.Enabled = false;
             this.textBoxGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBoxGender.Location = new System.Drawing.Point(189, 97);
             this.textBoxGender.Name = "textBoxGender";
+            this.textBoxGender.ReadOnly = true;
             this.textBoxGender.Size = new System.Drawing.Size(429, 35);
             this.textBoxGender.TabIndex = 3;
             // 
@@ -265,10 +271,10 @@
             this.textBoxSurname.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSurname.Enabled = false;
             this.textBoxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBoxSurname.Location = new System.Drawing.Point(189, 50);
             this.textBoxSurname.Name = "textBoxSurname";
+            this.textBoxSurname.ReadOnly = true;
             this.textBoxSurname.Size = new System.Drawing.Size(429, 35);
             this.textBoxSurname.TabIndex = 2;
             // 
@@ -347,10 +353,10 @@
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Enabled = false;
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBoxName.Location = new System.Drawing.Point(189, 3);
             this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
             this.textBoxName.Size = new System.Drawing.Size(429, 35);
             this.textBoxName.TabIndex = 1;
             // 
@@ -359,10 +365,10 @@
             this.textBoxPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPhone.Enabled = false;
             this.textBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBoxPhone.Location = new System.Drawing.Point(189, 238);
             this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.ReadOnly = true;
             this.textBoxPhone.Size = new System.Drawing.Size(429, 35);
             this.textBoxPhone.TabIndex = 6;
             // 
@@ -511,6 +517,7 @@
             this.buttonDelete.TabIndex = 6;
             this.buttonDelete.Text = "Sil";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonAdd
             // 
@@ -522,6 +529,7 @@
             this.buttonAdd.TabIndex = 5;
             this.buttonAdd.Text = "Ekle";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -608,10 +616,17 @@
             this.comboBoxVakit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxVakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBoxVakit.FormattingEnabled = true;
+            this.comboBoxVakit.Items.AddRange(new object[] {
+            "Sabah",
+            "Öğle",
+            "İkindi",
+            "Akşam",
+            "Yatsı"});
             this.comboBoxVakit.Location = new System.Drawing.Point(251, 120);
             this.comboBoxVakit.Name = "comboBoxVakit";
             this.comboBoxVakit.Size = new System.Drawing.Size(348, 45);
             this.comboBoxVakit.TabIndex = 2;
+            this.comboBoxVakit.Text = "Vakit Seçimi";
             // 
             // dateTimePickerDate
             // 
@@ -626,29 +641,29 @@
             // 
             this.dateTimePickerHour.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateTimePickerHour.CustomFormat = "HH:mm";
-            this.dateTimePickerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dateTimePickerHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dateTimePickerHour.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerHour.Location = new System.Drawing.Point(251, 221);
+            this.dateTimePickerHour.Location = new System.Drawing.Point(251, 215);
             this.dateTimePickerHour.MaxDate = new System.DateTime(2025, 5, 30, 0, 0, 0, 0);
             this.dateTimePickerHour.Name = "dateTimePickerHour";
             this.dateTimePickerHour.ShowUpDown = true;
-            this.dateTimePickerHour.Size = new System.Drawing.Size(348, 32);
+            this.dateTimePickerHour.Size = new System.Drawing.Size(348, 44);
             this.dateTimePickerHour.TabIndex = 3;
-            this.dateTimePickerHour.Value = new System.DateTime(2025, 5, 23, 0, 0, 0, 0);
+            this.dateTimePickerHour.Value = new System.DateTime(2025, 5, 24, 0, 0, 0, 0);
             // 
             // numericUpDownBloodSugar
             // 
-            this.numericUpDownBloodSugar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numericUpDownBloodSugar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownBloodSugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.numericUpDownBloodSugar.Location = new System.Drawing.Point(251, 311);
-            this.numericUpDownBloodSugar.Name = "numericUpDownBloodSugar";
-            this.numericUpDownBloodSugar.Size = new System.Drawing.Size(348, 44);
-            this.numericUpDownBloodSugar.TabIndex = 4;
-            this.numericUpDownBloodSugar.Value = new decimal(new int[] {
-            100,
+            this.numericUpDownBloodSugar.Maximum = new decimal(new int[] {
+            800,
             0,
             0,
             0});
+            this.numericUpDownBloodSugar.Name = "numericUpDownBloodSugar";
+            this.numericUpDownBloodSugar.Size = new System.Drawing.Size(349, 44);
+            this.numericUpDownBloodSugar.TabIndex = 4;
             // 
             // dataGridViewMeasures
             // 
@@ -656,30 +671,35 @@
             this.dataGridViewMeasures.AllowUserToDeleteRows = false;
             this.dataGridViewMeasures.AllowUserToOrderColumns = true;
             this.dataGridViewMeasures.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMeasures.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMeasures.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewMeasures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMeasures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnDate2,
             this.ColumnVakit,
             this.ColumnTime2,
-            this.ColumnValue});
+            this.ColumnValue,
+            this.HiddenID});
             this.dataGridViewMeasures.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMeasures.Name = "dataGridViewMeasures";
             this.dataGridViewMeasures.RowHeadersWidth = 20;
             this.dataGridViewMeasures.RowTemplate.Height = 28;
             this.dataGridViewMeasures.Size = new System.Drawing.Size(602, 536);
             this.dataGridViewMeasures.TabIndex = 0;
+            this.dataGridViewMeasures.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewMeasures_RowPostPaint);
             // 
             // ColumnDate2
             // 
             this.ColumnDate2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDate2.DataPropertyName = "date_time";
+            dataGridViewCellStyle2.Format = "dd.MM.yyyy";
+            this.ColumnDate2.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnDate2.HeaderText = "Tarih";
             this.ColumnDate2.MinimumWidth = 8;
             this.ColumnDate2.Name = "ColumnDate2";
@@ -687,6 +707,7 @@
             // ColumnVakit
             // 
             this.ColumnVakit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnVakit.DataPropertyName = "period";
             this.ColumnVakit.HeaderText = "Vakit";
             this.ColumnVakit.MinimumWidth = 8;
             this.ColumnVakit.Name = "ColumnVakit";
@@ -694,6 +715,9 @@
             // ColumnTime2
             // 
             this.ColumnTime2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTime2.DataPropertyName = "date_time";
+            dataGridViewCellStyle3.Format = "HH:mm";
+            this.ColumnTime2.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnTime2.HeaderText = "Saat";
             this.ColumnTime2.MinimumWidth = 8;
             this.ColumnTime2.Name = "ColumnTime2";
@@ -701,9 +725,19 @@
             // ColumnValue
             // 
             this.ColumnValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnValue.DataPropertyName = "blood_sugar";
             this.ColumnValue.HeaderText = "Şeker Değeri";
             this.ColumnValue.MinimumWidth = 8;
             this.ColumnValue.Name = "ColumnValue";
+            // 
+            // HiddenID
+            // 
+            this.HiddenID.DataPropertyName = "id";
+            this.HiddenID.HeaderText = "ID";
+            this.HiddenID.MinimumWidth = 8;
+            this.HiddenID.Name = "HiddenID";
+            this.HiddenID.Visible = false;
+            this.HiddenID.Width = 150;
             // 
             // PatientScreen
             // 
@@ -712,12 +746,14 @@
             this.ClientSize = new System.Drawing.Size(1243, 596);
             this.Controls.Add(this.tabControl);
             this.Name = "PatientScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Diyabet Kontrol Sistemi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatientScreen_FormClosing);
             this.Load += new System.EventHandler(this.PatientScreen_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPageInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPageInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfileImage)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabPageAdvises.ResumeLayout(false);
@@ -754,7 +790,7 @@
         private System.Windows.Forms.Button buttonGoAdvises;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonChangeİmage;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxProfileImage;
         private System.Windows.Forms.Button buttonRewind;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.DataGridView dataGridViewAdvises;
@@ -770,12 +806,7 @@
         private System.Windows.Forms.ComboBox comboBoxVakit;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerHour;
-        private System.Windows.Forms.NumericUpDown numericUpDownBloodSugar;
         private System.Windows.Forms.DataGridView dataGridViewMeasures;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVakit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDiet;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnExercise;
@@ -784,5 +815,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerBirthDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelAdvises;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVakit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HiddenID;
+        private System.Windows.Forms.NumericUpDown numericUpDownBloodSugar;
     }
 }

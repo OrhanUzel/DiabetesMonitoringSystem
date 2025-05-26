@@ -19,14 +19,16 @@ namespace ProLab3
 {
     public partial class AddPatientScreen : Form
     {
+        int doctor_id;
         DoctorScreen dc_screen;
         ChooseSymptoms chooseSymptoms2 = new ChooseSymptoms();
         public AddPatientScreen()
         {
             InitializeComponent();
         }
-        public AddPatientScreen(DoctorScreen dc_screen)
+        public AddPatientScreen(DoctorScreen dc_screen,int doctor_id)
         {
+            this.doctor_id = doctor_id;
             this.dc_screen = dc_screen;
             InitializeComponent();
         }
@@ -161,6 +163,8 @@ namespace ProLab3
                 {
                     MessageBox.Show("Kayıt Başarılı!");
                     sendPass(email, password);
+                    this.Hide();
+                    dc_screen.Show();
                 }
                 else
                 {
@@ -193,9 +197,10 @@ namespace ProLab3
                 {
                     // İlk tabloya ekleme yapma
                     using (SqlCommand addPatientInfoCmd = new SqlCommand(
-                        "INSERT INTO tbl_patients (name, surname, gender, birth_date, tc_no_hash, email, phone_number, blood_sugar, password_hash, salt) VALUES (@name, @surname, @gender, @birth_date, @tc_no_hash, @email, @phone_number, @blood_sugar, @password_hash, @salt); SELECT SCOPE_IDENTITY()",
+                        "INSERT INTO tbl_patients (doctor_id,name, surname, gender, birth_date, tc_no_hash, email, phone_number, blood_sugar, password_hash, salt) VALUES (@doctor_id,@name, @surname, @gender, @birth_date, @tc_no_hash, @email, @phone_number, @blood_sugar, @password_hash, @salt); SELECT SCOPE_IDENTITY()",
                         connection, transaction))
                     {
+                        addPatientInfoCmd.Parameters.AddWithValue("@doctor_id", doctor_id);
                         addPatientInfoCmd.Parameters.AddWithValue("@name", name);
                         addPatientInfoCmd.Parameters.AddWithValue("@surname", surname);
                         addPatientInfoCmd.Parameters.AddWithValue("@gender", gender);
@@ -305,43 +310,6 @@ namespace ProLab3
                 }
         }
 
-
-
-        private bool sqlProcessForSignUp(string connectionString,string name,string surname,bool gender,DateTime birth_date,string tc_no_hash,string email, string phone_number,int blood_sugar,string password_hash,string salt)//profil resmi opsiyonel
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();//sql bağlantısına sahibiz şu anda 
-                string query_for_get_symptom_names = "SELECT id FROM tbl_symptoms WHERE symptom_name = ";
-                string query_for_symptoms_save = "INSERT INTO tbl_patient_symptoms (patient_id, symptom_id) VALUES () ";
-                string query = "INSERT INTO tbl_patients (name, surname, gender, birth_date, tc_no_hash, email, phone_number, blood_sugar, password_hash, salt) VALUES (@name, @surname, @gender, @birth_date, @tc_no_hash, @email, @phone_number, @blood_sugar, @password_hash, @salt)";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@name", name);
-                    cmd.Parameters.AddWithValue("@surname", surname);
-                    cmd.Parameters.AddWithValue("@gender", gender);
-                    cmd.Parameters.AddWithValue("@birth_date", birth_date);
-                    cmd.Parameters.AddWithValue("@tc_no_hash", tc_no_hash);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@phone_number", phone_number);
-                    cmd.Parameters.AddWithValue("@blood_sugar", blood_sugar);
-                    cmd.Parameters.AddWithValue("@password_hash", password_hash);
-                    cmd.Parameters.AddWithValue("@salt", salt);
-                    
-                    int sonuc = cmd.ExecuteNonQuery();
-                    if (sonuc > 0)
-                    {
-                        MessageBox.Show("Kayıt başarılı!");
-                        return true;                 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Kayıt başarısız.");
-                        return false;
-                    }
-                }
-            }
-        }
         public void sendPass(string userEmail, string userPassword)
         {
             try
@@ -349,15 +317,15 @@ namespace ProLab3
 
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com"; // Doğru SMTP sunucusu
-                smtp.Port = 465; // Doğru port (Gmail için 587 veya 465)
+                smtp.Port = 587; // Doğru port (Gmail için 587 veya 465)
 
                 string senderPassword = Environment.GetEnvironmentVariable("MAIL_PASSWORD");
 
-                smtp.Credentials = new NetworkCredential("diyabettakibisistemi@gmail.com", senderPassword);
+                smtp.Credentials = new NetworkCredential("diyabet.takibi.sistemi.dts@gmail.com", senderPassword);
                 smtp.EnableSsl = true;
 
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("diyabettakibisistemi@gmail.com"); // Gönderici mail adresi
+                mail.From = new MailAddress("diyabet.takibi.sistemi.dts@gmail.com"); // Gönderici mail adresi
                 mail.To.Add(userEmail); // Alıcının mail adresi
                 mail.Subject = "Şifreniz";
                 mail.Body = $"Merhaba,\n\nKaydınız başarıyla gerçekleşti. Şifreniz: {userPassword}\n\nLütfen kimseyle paylaşmayınız.";
@@ -369,6 +337,9 @@ namespace ProLab3
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Error Type: {ex.GetType().Name}");
+                Console.WriteLine($"Error Message: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
                 MessageBox.Show("Mail gönderme hatası: " + ex.Message);
             }
         }

@@ -262,7 +262,7 @@ namespace ProLab3
             txtPhone.Text = currentPatient.phone_number;
 
             // Profil resmi
-            if (currentPatient.profile_image != null && currentPatient.profile_image.Count > 0)
+            if (currentPatient.profile_image != null && currentPatient.profile_image.Count() > 0)
             {
                 using (MemoryStream ms = new MemoryStream(currentPatient.profile_image.ToArray()))
                 {
@@ -405,7 +405,7 @@ namespace ProLab3
                         using (MemoryStream ms = new MemoryStream())
                         {
                             selectedImage.Save(ms, selectedImage.RawFormat);
-                            currentPatient.profile_image = new List<byte>(ms.ToArray());
+                            currentPatient.profile_image = ms.ToArray();
                         }
                     }
                     catch (Exception ex)

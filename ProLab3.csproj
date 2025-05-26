@@ -51,10 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPatientScreen.cs">
+    <Compile Include="DoctorInfo.cs" />
+    <Compile Include="Doctor\AddPatientScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPatientScreen.Designer.cs">
+    <Compile Include="Doctor\AddPatientScreen.Designer.cs">
       <DependentUpon>AddPatientScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="BackwardIcon.Designer.cs">
@@ -68,53 +69,66 @@
     <Compile Include="ChooseSymptoms.Designer.cs">
       <DependentUpon>ChooseSymptoms.cs</DependentUpon>
     </Compile>
-    <Compile Include="DietExerciseRecommendationForm .cs">
+    <Compile Include="Model\BloodSugarMeasure.cs" />
+    <Compile Include="Trash\DietExerciseRecommendationForm .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DietExerciseRecommendationForm .Designer.cs">
+    <Compile Include="Trash\DietExerciseRecommendationForm .Designer.cs">
       <DependentUpon>DietExerciseRecommendationForm .cs</DependentUpon>
     </Compile>
-    <Compile Include="DoctorScreen.cs">
+    <Compile Include="Doctor\DoctorScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoctorScreen.Designer.cs">
+    <Compile Include="Doctor\DoctorScreen.Designer.cs">
       <DependentUpon>DoctorScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Encryption.cs" />
-    <Compile Include="PatientDetailScreenFromDoctorScreen.cs">
+    <Compile Include="Doctor\yeni.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientDetailScreenFromDoctorScreen.Designer.cs">
+    <Compile Include="Doctor\yeni.Designer.cs">
+      <DependentUpon>yeni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption.cs" />
+    <Compile Include="Trash\PatientDetailScreenFromDoctorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trash\PatientDetailScreenFromDoctorScreen.Designer.cs">
       <DependentUpon>PatientDetailScreenFromDoctorScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientInfo.cs" />
+    <Compile Include="Doctor\PatientDetailInDoctorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\PatientDetailInDoctorScreen.Designer.cs">
+      <DependentUpon>PatientDetailInDoctorScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogInDoctor.cs">
+    <Compile Include="Doctor\LogInDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogInDoctor.Designer.cs">
+    <Compile Include="Doctor\LogInDoctor.Designer.cs">
       <DependentUpon>LogInDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogInPatient.cs">
+    <Compile Include="Patient\LogInPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogInPatient.Designer.cs">
+    <Compile Include="Patient\LogInPatient.Designer.cs">
       <DependentUpon>LogInPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PatientScreen.cs">
+    <Compile Include="Patient\PatientScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientScreen.Designer.cs">
+    <Compile Include="Patient\PatientScreen.Designer.cs">
       <DependentUpon>PatientScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddPatientScreen.resx">
+    <EmbeddedResource Include="Doctor\AddPatientScreen.resx">
       <DependentUpon>AddPatientScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BackwardIcon.resx">
@@ -124,19 +138,22 @@
     <EmbeddedResource Include="ChooseSymptoms.resx">
       <DependentUpon>ChooseSymptoms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctorScreen.resx">
+    <EmbeddedResource Include="Doctor\DoctorScreen.resx">
       <DependentUpon>DoctorScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientDetailScreenFromDoctorScreen.resx">
+    <EmbeddedResource Include="Trash\PatientDetailScreenFromDoctorScreen.resx">
       <DependentUpon>PatientDetailScreenFromDoctorScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\PatientDetailInDoctorScreen.resx">
+      <DependentUpon>PatientDetailInDoctorScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartScreen.resx">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogInDoctor.resx">
+    <EmbeddedResource Include="Doctor\LogInDoctor.resx">
       <DependentUpon>LogInDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogInPatient.resx">
+    <EmbeddedResource Include="Patient\LogInPatient.resx">
       <DependentUpon>LogInPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -149,7 +166,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="PatientScreen.resx">
+    <EmbeddedResource Include="Patient\PatientScreen.resx">
       <DependentUpon>PatientScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\DoctorScreen.datasource" />
@@ -190,5 +207,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

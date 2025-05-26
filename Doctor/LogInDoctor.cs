@@ -9,18 +9,49 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProLab3
 {
-    public partial class LogInPatient : Form
+    public partial class LogInDoctor : Form
     {
-        public LogInPatient()
+        public LogInDoctor(StartScreen startScreen)
+        {
+            InitializeComponent();
+        }
+
+        public LogInDoctor()
         {
         }
         private void LogInDoctor_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //view üzerinden de refereans vermemiz lazım
             Application.Exit();  // Tüm uygulamayı kapatır
         }
+
+
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void textBoxUserName_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Sadece rakamlar ve silme tuşu (Backspace) kabul edilir
@@ -36,21 +67,25 @@ namespace ProLab3
             //    e.Handled = false;
             //}
         }
+       
 
-
-
-
-        public LogInPatient(StartScreen startScreen)
+        private void textBoxUserName_TextChanged(object sender, EventArgs e)
         {
-            InitializeComponent();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-           // this.Close();//önce kapatırsam aşağıdaki işlemleri yapamam 
+            // this.Close();//önce kapatırsam aşağıdaki işlemleri yapamam 
             StartScreen startScreen = new StartScreen();
             startScreen.Show(this);
             this.Hide();//close düzgün çalışmadı
+
+        }
+
+        private void LogInDoctor_MouseHover(object sender, EventArgs e)
+        {
+
         }
 
         private void pictureBox1_MouseHover(object sender, EventArgs e)
@@ -65,14 +100,15 @@ namespace ProLab3
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
+           
             string tc_no = textBoxUserName.Text.Trim();//boşluk vs almamak için trim işlemi 
-            string tc_no_hash= Encryption.encryptWithSHA512(tc_no); //veri tabanındaki tc hashiyle aynı hashddeki veri bulunacak mı
+            string tc_no_hash = Encryption.encryptWithSHA512(tc_no); //veri tabanındaki tc hashiyle aynı hashddeki veri bulunacak mı
             string password = textBoxPassword.Text;
 
             using (SqlConnection conn = new SqlConnection("Server=ORHANUZEL\\SQLEXPRESS;Database=DiabetesMonitoringSystem;Trusted_Connection=True;"))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT id,name,surname,gender,birth_date,email,phone_number,profile_image,password_hash,salt FROM tbl_patients WHERE tc_no_hash = @Username", conn);
+                SqlCommand cmd = new SqlCommand("SELECT password_hash,salt,id FROM tbl_doctors WHERE tc_no_hash = @Username", conn);
                 cmd.Parameters.AddWithValue("@Username", tc_no_hash);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -81,29 +117,15 @@ namespace ProLab3
                 {
                     string storedHash = reader["password_hash"].ToString();//get password_hash
                     string salt = reader["salt"].ToString();//get salt from database //kaçıncı kolonda olduğunu yazacağız 
-
+                    int doctor_id = Convert.ToInt32(reader["id"]);
                     string inputHash = Encryption.encryptWithSHA512(password + salt);
 
                     if (storedHash == inputHash)
                     {
-                        int id =Convert.ToInt32(reader["id"]);
-                        string name=reader["name"].ToString().Trim();
-                        string surname = reader["surname"].ToString().Trim();
-                        bool gender = (bool)reader["gender"];
-                        DateTime birth_date = Convert.ToDateTime(reader["birth_date"]);
-                        string email=reader["email"].ToString().Trim();
-                        string phone_number = reader["phone_number"].ToString().Trim();
-                        List<byte> profile_image=new List<byte>();
-                        if (reader["profile_image"] != DBNull.Value)//veri tabanında null ise bu şekilde alınıyor "null" yerine "DBNull.Value" olarak
-                        {
-                            profile_image = (List<byte>)reader["profile_image"];//sonuç belli değil
-                        }
-                        
-                        PatientInfo patient = new PatientInfo(id,name,surname,gender,birth_date,email,phone_number,profile_image);
-
                         MessageBox.Show("Giriş başarılı!");
-                        PatientScreen patientScreen = new PatientScreen(patient);
-                        patientScreen.Show(this);
+                        // Ana formu aç vs.
+                        DoctorScreen doctorScreen = new DoctorScreen(doctor_id);
+                        doctorScreen.Show(this);
                         this.Hide();
                     }
                     else
@@ -118,8 +140,9 @@ namespace ProLab3
 
                 reader.Close();
             }
-
         }
+
+       
 
 
     }

@@ -84,7 +84,7 @@
             this.buttonLogIn.TabIndex = 2;
             this.buttonLogIn.Text = "Giriş Yap";
             this.buttonLogIn.UseVisualStyleBackColor = true;
-            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
+            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogInTikla);
             // 
             // pictureBox1
             // 
@@ -123,6 +123,7 @@
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.buttonLogIn);
             this.Name = "LogInPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hasta Girişi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LogInDoctor_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
